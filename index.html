@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typewriter Effect</title>
+  <style>
+    body {
+      margin: -100px auto; /* Centered horizontally */
+      overflow: hidden;
+      display: flex;
+      align-items: flex-start; /* Align items to the start (upper part) */
+      justify-content: center;
+      flex-direction: column; /* Arranged content in a column */
+      height: 100vh;
+      background-image: url('C:/Eoghan/kimchimiso/cattos.jpg');
+      background-size: cover;
+    }
+
+    p {
+      color: white; /* Text color */
+      font-family: Consolas, Monaco, monospace;
+      font-size: 2em; /* Adjusted font size */
+      font-weight: bold; /* Added font weight for bold text */
+      text-align: center; /* Center the text */
+      line-height: 0; /* Increased vertical alignment */
+      margin: 50px auto 0; /* Adjusted margin for upper middle positioning */
+    }
+
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      width: 30px; /* Adjust the size of the snowflake */
+      height: 30px;
+      background-image: url('C:/Eoghan/kimchimiso/snowflake.png'); /* Replace 'path/to/snowflake.png' with the actual path to your snowflake image */
+      background-size: cover;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<p>Rani, kahit na paulit-ulit kong sinasabi sa'yo hdasjhdasjda, sobrang proud</p>
+<p>ako sa'yo. Thank u for making this sy special and I pray for u always.</p>
+<p>I wish u calmness and joy this season, magpahinga at 'wag magpuyat.</p>
+<p>Thank u for everything and I hope to see u soon hahaha</p>
+
+<script>
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.animationDuration = Math.random() * 5 + 3 + 's'; // Adjusted for slower falling
+    document.body.appendChild(snowflake);
+
+    setTimeout(() => {
+      snowflake.remove();
+    }, 10000); // Remove snowflakes after 10 seconds
+  }
+
+  function snowfall() {
+    setInterval(createSnowflake, 1000); // Adjusted for slower creation
+  }
+
+  for (let i = 0; i < 50; i++) {
+    setTimeout(() => {
+      createSnowflake();
+    }, i * 200);
+  }
+
+  snowfall();
+</script>
+
+</body>
+</html>
